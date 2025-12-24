@@ -1,42 +1,68 @@
 import { Helmet } from "react-helmet-async";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
+import Certificates from "@/components/Certificates";
+import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const { t, language } = useLanguage();
+
   return (
     <>
       <Helmet>
-        <title>João Silva — Designer & Desenvolvedor Web | Portfolio</title>
-        <meta 
-          name="description" 
-          content="Portfolio de João Silva, designer e desenvolvedor web baseado em Lisboa. Especializado em criar experiências digitais memoráveis com design elegante e código limpo." 
+        <html lang={language} />
+        <title>Diogo Vieira — Software Engineer</title>
+        <meta
+          name="description"
+          content={t(
+            "Backend & cloud-focused software engineer. Building scalable microservices and reliable APIs with .NET, C#, and AWS.",
+            "Engenheiro de software focado em backend e cloud. Construindo microserviços escaláveis e APIs fiáveis com .NET, C# e AWS."
+          )}
         />
-        <meta name="keywords" content="web designer, desenvolvedor web, UI/UX, React, Lisboa, Portugal, portfolio" />
-        <link rel="canonical" href="https://joaosilva.pt" />
-        
+        <meta
+          name="keywords"
+          content="software engineer, backend developer, .NET, C#, AWS, microservices, cloud, Portugal"
+        />
+        <link rel="canonical" href="https://diogovieira.dev" />
+
         {/* Open Graph */}
-        <meta property="og:title" content="João Silva — Designer & Desenvolvedor Web" />
-        <meta property="og:description" content="Transformo ideias em experiências digitais memoráveis, combinando design elegante com código limpo e funcional." />
+        <meta property="og:title" content="Diogo Vieira — Software Engineer" />
+        <meta
+          property="og:description"
+          content={t(
+            "Backend & cloud-focused software engineer.",
+            "Engenheiro de software focado em backend e cloud."
+          )}
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:locale" content="pt_PT" />
-        
+        <meta property="og:locale" content={language === "en" ? "en_US" : "pt_PT"} />
+
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="João Silva — Designer & Desenvolvedor Web" />
-        <meta name="twitter:description" content="Portfolio de designer e desenvolvedor web baseado em Lisboa." />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Diogo Vieira — Software Engineer" />
+        <meta
+          name="twitter:description"
+          content={t(
+            "Backend & cloud-focused software engineer.",
+            "Engenheiro de software focado em backend e cloud."
+          )}
+        />
       </Helmet>
 
-      <main className="overflow-hidden">
+      <main className="min-h-screen bg-background">
         <Navigation />
         <Hero />
         <About />
+        <TechStack />
         <Experience />
-        <Skills />
+        <Certificates />
+        <Education />
         <Contact />
         <Footer />
       </main>

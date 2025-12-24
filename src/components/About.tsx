@@ -1,65 +1,36 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const About = () => {
+  const { t } = useLanguage();
+
   return (
-    <section id="about" className="py-32 bg-background">
-      <div className="container px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Image/Visual */}
-            <div className="relative">
-              <div className="aspect-[4/5] bg-gradient-card rounded-2xl overflow-hidden shadow-elegant">
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(var(--primary)/0.1)_0%,transparent_50%)]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 border-2 border-primary/30 rounded-full flex items-center justify-center">
-                    <div className="w-20 h-20 bg-gradient-gold rounded-full opacity-80" />
-                  </div>
-                </div>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 border border-primary/20 rounded-full" />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-primary/10 rounded-2xl" />
-            </div>
+    <section id="about" className="py-24 px-6">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-sm font-mono text-primary uppercase tracking-wider mb-6">
+          {t("About Me", "Sobre Mim")}
+        </h2>
 
-            {/* Right side - Content */}
-            <div>
-              <p className="font-body text-sm tracking-[0.3em] uppercase text-primary mb-4">
-                Sobre Mim
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl font-semibold mb-8 text-foreground">
-                Criando experiências digitais com <span className="text-gradient italic">paixão</span>
-              </h2>
-              <div className="space-y-6 text-secondary-foreground/80 font-body text-lg leading-relaxed">
-                <p>
-                  Com mais de 8 anos de experiência em design e desenvolvimento web, 
-                  dedico-me a criar soluções digitais que não só parecem bonitas, 
-                  mas que também funcionam de forma impecável.
-                </p>
-                <p>
-                  A minha abordagem combina estética minimalista com funcionalidade 
-                  robusta, sempre mantendo o utilizador no centro de cada decisão de design.
-                </p>
-                <p>
-                  Baseado em Lisboa, trabalho com clientes de todo o mundo, 
-                  desde startups inovadoras a marcas estabelecidas.
-                </p>
-              </div>
+        <div className="space-y-4 text-secondary-foreground/90 leading-relaxed">
+          <p>
+            {t(
+              "I'm a software engineer with a focus on backend development, cloud-native systems, and software quality. I work primarily with .NET, C#, and AWS, building scalable microservices and reliable APIs.",
+              "Sou engenheiro de software com foco em desenvolvimento backend, sistemas cloud-native e qualidade de software. Trabalho principalmente com .NET, C# e AWS, construindo microserviços escaláveis e APIs fiáveis."
+            )}
+          </p>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-border">
-                <div>
-                  <p className="font-display text-4xl font-semibold text-gradient">8+</p>
-                  <p className="font-body text-sm text-muted-foreground mt-1">Anos de Experiência</p>
-                </div>
-                <div>
-                  <p className="font-display text-4xl font-semibold text-gradient">50+</p>
-                  <p className="font-body text-sm text-muted-foreground mt-1">Projetos Concluídos</p>
-                </div>
-                <div>
-                  <p className="font-display text-4xl font-semibold text-gradient">30+</p>
-                  <p className="font-body text-sm text-muted-foreground mt-1">Clientes Satisfeitos</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p>
+            {t(
+              "My experience spans from safety-critical systems in aerospace and railway domains to modern cloud infrastructure. I value clean architecture, thorough testing, and code that's built to last.",
+              "A minha experiência abrange desde sistemas safety-critical em domínios aeroespaciais e ferroviários até infraestrutura cloud moderna. Valorizo arquitetura limpa, testes rigorosos e código construído para durar."
+            )}
+          </p>
+
+          <p>
+            {t(
+              "Currently at Openvia, I design and implement backend services that power mobility solutions, with a strong emphasis on reliability and scalability.",
+              "Atualmente na Openvia, desenho e implemento serviços backend que alimentam soluções de mobilidade, com forte ênfase em fiabilidade e escalabilidade."
+            )}
+          </p>
         </div>
       </div>
     </section>

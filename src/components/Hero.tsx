@@ -1,71 +1,83 @@
-import { ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, FolderOpen, Download } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow animation-delay-500" />
-      </div>
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
-
-      <div className="container relative z-10 px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Small intro text */}
-          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-8 opacity-0 animate-fade-up">
-            Portfolio & Currículo
-          </p>
-
-          {/* Main name */}
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tight mb-6 opacity-0 animate-fade-up animation-delay-100">
-            <span className="text-gradient">João</span>{" "}
-            <span className="text-foreground">Silva</span>
-          </h1>
-
-          {/* Title/Role */}
-          <p className="font-display text-2xl md:text-3xl lg:text-4xl italic text-muted-foreground mb-12 opacity-0 animate-fade-up animation-delay-200">
-            Designer & Desenvolvedor Web
-          </p>
-
-          {/* Brief tagline */}
-          <p className="font-body text-lg md:text-xl text-secondary-foreground/80 max-w-2xl mx-auto mb-16 opacity-0 animate-fade-up animation-delay-300">
-            Transformo ideias em experiências digitais memoráveis, 
-            combinando design elegante com código limpo e funcional.
-          </p>
-
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-up animation-delay-400">
-            <a 
-              href="#contact" 
-              className="group relative px-8 py-4 bg-gradient-gold text-primary-foreground font-body font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-gold hover:scale-105"
-            >
-              <span className="relative z-10">Entrar em Contacto</span>
-            </a>
-            <a 
-              href="#experience" 
-              className="px-8 py-4 border border-border text-foreground font-body font-medium rounded-full transition-all duration-300 hover:border-primary hover:text-primary"
-            >
-              Ver Trabalhos
-            </a>
+    <section className="min-h-screen flex items-center justify-center px-6">
+      <div className="text-center max-w-2xl mx-auto">
+        {/* Profile Picture */}
+        <div className="w-28 h-28 mx-auto mb-6 rounded-full bg-secondary border-2 border-border overflow-hidden">
+          <div className="w-full h-full flex items-center justify-center text-muted-foreground text-3xl font-medium">
+            DV
           </div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <button 
-        onClick={scrollToAbout}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors duration-300 animate-float"
-        aria-label="Scroll para baixo"
-      >
-        <ArrowDown className="w-6 h-6" />
-      </button>
+        {/* Name */}
+        <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
+          Diogo Vieira
+        </h1>
+
+        {/* Role */}
+        <p className="text-muted-foreground mb-4">
+          Software Engineer @ <span className="text-foreground">Openvia</span>
+        </p>
+
+        {/* Tagline */}
+        <p className="text-secondary-foreground/80 mb-8">
+          {t(
+            "Backend & cloud-focused software engineer.",
+            "Engenheiro de software focado em backend e cloud."
+          )}
+        </p>
+
+        {/* Social Icons */}
+        <div className="flex justify-center gap-4 mb-8">
+          <a
+            href="https://github.com/diogovieira"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+            aria-label="GitHub"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+          <a
+            href="https://linkedin.com/in/diogovieira"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a
+            href="mailto:diogo@example.com"
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+            aria-label="Email"
+          >
+            <Mail className="w-4 h-4" />
+          </a>
+          <a
+            href="#experience"
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+            aria-label="Projects"
+          >
+            <FolderOpen className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* Download Resume Button */}
+        <a
+          href="/resume.pdf"
+          download
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
+        >
+          <Download className="w-4 h-4" />
+          {t("Download Resume", "Download CV")}
+        </a>
+      </div>
     </section>
   );
 };
