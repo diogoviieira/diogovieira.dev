@@ -33,8 +33,8 @@ const Hero = () => {
               </p>
               <p className="text-secondary-foreground text-sm">
                 {t(
-                  "Backend & cloud-focused software engineer.",
-                  "Engenheiro de software focado em backend e cloud."
+                  "Drinking coffee while keeping systems running (most of the time).",
+                  "A beber café enquanto mantenho sistemas a funcionar (a maior parte do tempo)."
                 )}
               </p>
 

@@ -1,4 +1,4 @@
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -72,6 +72,7 @@ const Experience = ({ showAll = false }: ExperienceProps) => {
       <div className="max-w-4xl mx-auto">
         <div className="section-header">
           <h2 className="section-title">
+            <Briefcase className="w-4 h-4 text-muted-foreground" />
             {t("Experience", "Experiência")}
           </h2>
           {!showAll && (

@@ -1,4 +1,4 @@
-import { ExternalLink, ArrowRight, GraduationCap } from "lucide-react";
+import { ExternalLink, ArrowRight, GraduationCap, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -51,6 +51,7 @@ const EducationCertificates = ({ showAllCertificates = false }: EducationCertifi
       <div className="max-w-4xl mx-auto">
         <div className="section-header">
           <h2 className="section-title">
+            <Award className="w-4 h-4 text-muted-foreground" />
             {t("Education & Certificates", "Educação & Certificados")}
           </h2>
           {!showAllCertificates && (
