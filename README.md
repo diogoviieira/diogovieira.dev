@@ -35,8 +35,6 @@ The website focuses on **simplicity, performance, and readability**, avoiding un
 
 ---
 
----
-
 ## 🧑‍💻 Local Development
 
 Clone the repository:
