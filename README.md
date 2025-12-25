@@ -46,7 +46,7 @@ git clone https://github.com/diogoviieira/diogovieira.dev.git
 cd diogovieira.dev
 
 ---
-🎯 Features
+## 🎯 Features
 	•	Responsive design (desktop & mobile)
 	•	Multilingual support (English / Portuguese)
 	•	Clean and minimal UI
@@ -54,20 +54,20 @@ cd diogovieira.dev
 	•	Downloadable resume
 	•	Modern tech stack
 	•	Fast loading and optimized build
-    
 ---
 
-🔐 Branch & Contribution Policy
+## 🔐 Branch & Contribution Policy
 
 This is a personal portfolio project.
 	•	Direct pushes to main are allowed for the owner
 	•	External contributions should be made via Pull Requests
 	•	Branch protection is used to avoid accidental changes
+  
+---
 
-⸻
-
-📜 License
+## 📜 License
 
 This project is licensed under the MIT License.
 
+---
 
