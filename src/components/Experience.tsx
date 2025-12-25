@@ -1,6 +1,7 @@
 import { ExternalLink, ArrowRight, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Badge } from "@/components/ui/badge";
 
 export interface ExperienceItem {
   company: string;
@@ -15,23 +16,23 @@ export const experienceData: ExperienceItem[] = [
     company: "Openvia Mobility",
     companyUrl: "https://openvia.io",
     role: { en: "Software Developer", pt: "Programador de Software" },
-    period: { en: "2022 – Present", pt: "2022 – Presente" },
+    period: { en: "2025 – Present", pt: "2025 – Presente" },
     points: {
       en: [
-        "Backend development using .NET and C# in microservices architecture",
-        "Design and implementation of RESTful APIs",
-        "Containerization with Docker and orchestration with Kubernetes",
-        "Integration with AWS services",
-        "PostgreSQL and SQL database interaction",
-        "Monitoring and CI/CD using Grafana and Jenkins",
+        "Design and develop backend services using .NET/C# in distributed microservices architecture",
+        "Architect and implement RESTful APIs ensuring scalability and maintainability",
+        "Deploy and orchestrate containerized services using Docker and Kubernetes",
+        "Integrate cloud-native solutions with AWS infrastructure",
+        "Implement database solutions using PostgreSQL and SQL Server",
+        "Establish monitoring and CI/CD pipelines with Grafana and Jenkins",
       ],
       pt: [
-        "Desenvolvimento backend com .NET e C# em arquitetura de microserviços",
-        "Design e implementação de APIs RESTful",
-        "Containerização com Docker e orquestração com Kubernetes",
-        "Integração com serviços AWS",
-        "Interação com bases de dados PostgreSQL e SQL",
-        "Monitorização e CI/CD com Grafana e Jenkins",
+        "Design e desenvolvimento de serviços backend com .NET/C# em arquitetura distribuída de microserviços",
+        "Arquitetura e implementação de APIs RESTful garantindo escalabilidade e manutenibilidade",
+        "Deploy e orquestração de serviços containerizados com Docker e Kubernetes",
+        "Integração de soluções cloud-native com infraestrutura AWS",
+        "Implementação de soluções de base de dados usando PostgreSQL e SQL Server",
+        "Estabelecimento de pipelines de monitorização e CI/CD com Grafana e Jenkins",
       ],
     },
   },
@@ -39,21 +40,19 @@ export const experienceData: ExperienceItem[] = [
     company: "Critical Software",
     companyUrl: "https://criticalsoftware.com",
     role: { en: "Software Engineer", pt: "Engenheiro de Software" },
-    period: { en: "2021 – 2022", pt: "2021 – 2022" },
+    period: { en: "2021 – 2025", pt: "2021 – 2025" },
     points: {
       en: [
-        "Development of safety-critical software for railway, aerospace and maritime systems",
-        "Work under DO-178C and DO-330 standards",
-        "Requirements definition, plans, test cases and test procedures",
-        "Software integration and continuous improvement",
-        "Participation in international and confidential projects",
+        "Engineered safety-critical software for railway, aerospace, and maritime systems",
+        "Contributed across the full software lifecycle, from requirements and architecture to verification and validation",
+        "Executed software integration, test specification, and continuous improvement initiatives",
+        "Collaborated with international cross-functional teams on confidential certification projects",
       ],
       pt: [
-        "Desenvolvimento de software safety-critical para sistemas ferroviários, aeroespaciais e marítimos",
-        "Trabalho sob normas DO-178C e DO-330",
-        "Definição de requisitos, planos, casos de teste e procedimentos de teste",
-        "Integração de software e melhoria contínua",
-        "Participação em projetos internacionais e confidenciais",
+        "Engenharia de software safety-critical para sistemas ferroviários, aeroespaciais e marítimos",
+        "Contribuição ao longo de todo o ciclo de vida do software, desde requisitos e arquitetura até verificação e validação",
+        "Execução de integração de software, especificação de testes e iniciativas de melhoria contínua",
+        "Colaboração com equipas internacionais multifuncionais em projetos confidenciais de certificação",
       ],
     },
   },
@@ -87,16 +86,23 @@ const Experience = ({ showAll = false }: ExperienceProps) => {
           {displayData.map((exp, index) => (
             <div key={index} className="card-dashboard">
               <div className="flex items-start justify-between mb-3">
-                <div>
-                  <a
-                    href={exp.companyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-foreground font-medium hover:text-primary transition-colors"
-                  >
-                    {exp.company}
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-foreground font-medium hover:text-primary transition-colors"
+                    >
+                      {exp.company}
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    {exp.company === "Critical Software" && (
+                      <Badge variant="outline" className="text-xs font-normal border-muted-foreground/30">
+                        Safety-Critical Systems · DO-178C · DO-330
+                      </Badge>
+                    )}
+                  </div>
                   <p className="text-sm text-muted-foreground">
                     {exp.role[language]}
                   </p>

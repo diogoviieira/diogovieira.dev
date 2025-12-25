@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
 import EducationCertificates from "@/components/EducationCertificates";
-import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,8 +17,8 @@ const Index = () => {
         <meta
           name="description"
           content={t(
-            "Backend & cloud-focused software engineer. Building scalable microservices and reliable APIs with .NET, C#, and AWS.",
-            "Engenheiro de software focado em backend e cloud. Construindo microserviços escaláveis e APIs fiáveis com .NET, C# e AWS."
+            "Drinking coffee while keeping systems running (most of the time)",
+            "Tomando café enquanto mantenho os sistemas a funcionar (na maior parte do tempo)"
           )}
         />
         <meta
@@ -57,7 +56,6 @@ const Index = () => {
         <TechStack />
         <Experience />
         <EducationCertificates />
-        <Projects />
         <Footer />
       </main>
     </>
