@@ -13,12 +13,12 @@ const CertificatesPage = () => {
     <>
       <Helmet>
         <html lang={language} />
-        <title>{t("Certificates — Diogo Vieira", "Certificados — Diogo Vieira")}</title>
+        <title>{t("Education — Diogo Vieira", "Educação — Diogo Vieira")}</title>
         <meta
           name="description"
           content={t(
-            "Education and certificates of Diogo Vieira, Software Engineer.",
-            "Educação e certificados de Diogo Vieira, Engenheiro de Software."
+            "Education background of Diogo Vieira, Software Engineer.",
+            "Formação académica de Diogo Vieira, Engenheiro de Software."
           )}
         />
       </Helmet>
@@ -37,7 +37,7 @@ const CertificatesPage = () => {
           </div>
         </div>
 
-        <EducationCertificates showAllCertificates />
+        <EducationCertificates />
         <Footer />
       </main>
     </>
