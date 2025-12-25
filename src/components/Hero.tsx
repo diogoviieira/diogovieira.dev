@@ -32,7 +32,7 @@ const Hero = () => {
               <p className="text-muted-foreground mb-2">Software Engineer
               </p>
               <p className="text-secondary-foreground text-sm">
-                {t("Drinking coffee while keeping systems running (most of the time)", "Tomando café enquanto mantenho os sistemas a funcionar (na maior parte do tempo)")}
+                {t("Drinking coffee while keeping systems running (most of the time)", "Bebendo café enquanto mantenho os sistemas a funcionar (na maior parte do tempo)")}
               </p>
 
               {/* Icons & Download */}
