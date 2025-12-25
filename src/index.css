@@ -2,51 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    --background: 220 16% 8%;
+    --background: 220 20% 7%;
     --foreground: 210 20% 95%;
 
-    --card: 220 14% 11%;
+    --card: 220 18% 10%;
     --card-foreground: 210 20% 95%;
+    --card-hover: 220 18% 13%;
 
-    --popover: 220 14% 11%;
+    --popover: 220 18% 10%;
     --popover-foreground: 210 20% 95%;
 
-    --primary: 45 80% 55%;
-    --primary-foreground: 220 16% 8%;
+    --primary: 190 90% 50%;
+    --primary-foreground: 220 20% 7%;
 
-    --secondary: 220 12% 14%;
-    --secondary-foreground: 210 15% 85%;
+    --secondary: 220 16% 14%;
+    --secondary-foreground: 210 15% 75%;
 
-    --muted: 220 12% 18%;
-    --muted-foreground: 215 12% 50%;
+    --muted: 220 14% 18%;
+    --muted-foreground: 210 12% 55%;
 
-    --accent: 45 70% 50%;
-    --accent-foreground: 220 16% 8%;
+    --accent: 190 80% 45%;
+    --accent-foreground: 220 20% 7%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 220 12% 18%;
-    --input: 220 12% 18%;
-    --ring: 45 80% 55%;
+    --border: 220 14% 20%;
+    --input: 220 14% 18%;
+    --ring: 190 90% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --sidebar-background: 220 14% 11%;
+    --sidebar-background: 220 18% 10%;
     --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 45 80% 55%;
-    --sidebar-primary-foreground: 220 16% 8%;
-    --sidebar-accent: 220 12% 14%;
-    --sidebar-accent-foreground: 210 15% 85%;
-    --sidebar-border: 220 12% 18%;
-    --sidebar-ring: 45 80% 55%;
+    --sidebar-primary: 190 90% 50%;
+    --sidebar-primary-foreground: 220 20% 7%;
+    --sidebar-accent: 220 16% 14%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 190 90% 50%;
   }
 }
 
@@ -65,18 +66,38 @@
   }
 }
 
+@layer components {
+  .card-dashboard {
+    @apply bg-card border border-border rounded-lg p-5 transition-all duration-200 hover:border-primary/40;
+  }
+
+  .section-header {
+    @apply flex items-center justify-between mb-5;
+  }
+
+  .section-title {
+    @apply text-xs font-mono text-muted-foreground uppercase tracking-widest;
+  }
+
+  .view-all-link {
+    @apply text-xs text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1;
+  }
+
+  .skill-tag {
+    @apply px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-medium rounded border border-border transition-colors hover:border-primary/30;
+  }
+}
+
 @layer utilities {
   .font-mono {
     font-family: var(--font-mono);
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection color */
 ::selection {
   background: hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));

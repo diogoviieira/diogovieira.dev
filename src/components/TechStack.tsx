@@ -31,24 +31,23 @@ const TechStack = () => {
   ];
 
   return (
-    <section id="tech" className="py-24 px-6 bg-secondary/30">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-sm font-mono text-primary uppercase tracking-wider mb-8">
-          {t("Tech Stack", "Stack Tecnológica")}
-        </h2>
+    <section id="tech" className="py-6 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="section-header">
+          <h2 className="section-title">
+            {t("Tech Stack", "Stack Tecnológica")}
+          </h2>
+        </div>
 
-        <div className="grid gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {categories.map((category) => (
-            <div key={category.title}>
-              <h3 className="text-sm text-muted-foreground mb-3">
+            <div key={category.title} className="card-dashboard">
+              <h3 className="text-sm font-medium text-foreground mb-3">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-secondary text-foreground text-sm rounded border border-border"
-                  >
+                  <span key={skill} className="skill-tag">
                     {skill}
                   </span>
                 ))}
