@@ -6,40 +6,57 @@ import {
   Database, 
   GitBranch, 
   Users,
-  Layers
+  Layers,
+  FileCode,
+  Cpu,
+  Terminal,
+  Braces,
+  Binary,
+  Box,
+  Container,
+  Activity,
+  Gauge,
+  HardDrive,
+  CircleDot,
+  GitMerge,
+  GitPullRequest,
+  IterationCw,
+  Kanban,
+  UserCheck
 } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
-// Tech icon mapping - using a simple approach with common dev icons
-const techIcons: Record<string, string> = {
+// Minimal icon mapping for technologies
+const techIconMap: Record<string, LucideIcon> = {
   // Languages
-  "C": "C",
-  "C++": "C++",
-  "C#": "C#",
-  "Python": "Py",
-  "Ada": "Ada",
-  "JavaScript": "JS",
+  "C": FileCode,
+  "C++": Cpu,
+  "C#": Braces,
+  "Python": Terminal,
+  "Ada": Binary,
+  "JavaScript": Code2,
   // Backend
-  ".NET": ".NET",
-  "RESTful APIs": "API",
-  "Microservices": "μS",
+  ".NET": Server,
+  "RESTful APIs": Braces,
+  "Microservices": Box,
   // Cloud
-  "AWS": "AWS",
-  "Docker": "🐳",
-  "Kubernetes": "K8s",
-  "Jenkins": "J",
-  "Grafana": "G",
+  "AWS": Cloud,
+  "Docker": Container,
+  "Kubernetes": CircleDot,
+  "Jenkins": Activity,
+  "Grafana": Gauge,
   // DB
-  "PostgreSQL": "PG",
-  "MySQL": "My",
-  "SQL": "SQL",
+  "PostgreSQL": Database,
+  "MySQL": HardDrive,
+  "SQL": Database,
   // Git
-  "Git": "Git",
-  "GitHub": "GH",
-  "Bitbucket": "BB",
+  "Git": GitBranch,
+  "GitHub": GitMerge,
+  "Bitbucket": GitPullRequest,
   // Methods
-  "Agile": "A",
-  "Scrum": "S",
-  "Kanban": "K",
+  "Agile": IterationCw,
+  "Scrum": UserCheck,
+  "Kanban": Kanban,
 };
 
 const TechStack = () => {
@@ -94,20 +111,21 @@ const TechStack = () => {
             return (
               <div key={category.title} className="card-dashboard">
                 <div className="flex items-center gap-2 mb-3">
-                  <CategoryIcon className="w-4 h-4 text-muted-foreground" />
+                  <CategoryIcon className="w-3.5 h-3.5 text-muted-foreground" strokeWidth={1.5} />
                   <h3 className="text-sm font-medium text-foreground">
                     {category.title}
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span key={skill} className="skill-tag">
-                      <span className="text-muted-foreground font-mono text-[10px] mr-1.5">
-                        {techIcons[skill]}
+                  {category.skills.map((skill) => {
+                    const SkillIcon = techIconMap[skill] || Code2;
+                    return (
+                      <span key={skill} className="skill-tag">
+                        <SkillIcon className="w-3 h-3 text-muted-foreground/70" strokeWidth={1.5} />
+                        {skill}
                       </span>
-                      {skill}
-                    </span>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );
