@@ -35,14 +35,6 @@ The website focuses on **simplicity, performance, and readability**, avoiding un
 
 ---
 
-## 🧑‍💻 Local Development
-
-Clone the repository:
-
-```bash
-git clone https://github.com/diogoviieira/diogovieira.dev.git
-cd diogovieira.dev
-
 ---
 ## 🎯 Features
 	•	Responsive design (desktop & mobile)
