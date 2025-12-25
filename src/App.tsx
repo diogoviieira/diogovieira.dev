@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
+import ExperiencePage from "./pages/ExperiencePage";
+import CertificatesPage from "./pages/CertificatesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +22,8 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/certificates" element={<CertificatesPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

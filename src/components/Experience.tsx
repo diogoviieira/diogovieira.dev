@@ -1,78 +1,115 @@
+import { ExternalLink, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const Experience = () => {
-  const { language } = useLanguage();
+export interface ExperienceItem {
+  company: string;
+  companyUrl: string;
+  role: { en: string; pt: string };
+  period: { en: string; pt: string };
+  points: { en: string[]; pt: string[] };
+}
 
-  const experiences = [
-    {
-      company: "Openvia Mobility",
-      role: language === 'en' ? "Software Developer" : "Programador de Software",
-      period: language === 'en' ? "2022 – Present" : "2022 – Presente",
-      points: language === 'en'
-        ? [
-            "Backend development using .NET and C# in microservices architecture",
-            "Design and implementation of RESTful APIs",
-            "Containerization with Docker and orchestration with Kubernetes",
-            "Integration with AWS services",
-            "PostgreSQL and SQL database interaction",
-            "Monitoring and CI/CD using Grafana and Jenkins",
-          ]
-        : [
-            "Desenvolvimento backend com .NET e C# em arquitetura de microserviços",
-            "Design e implementação de APIs RESTful",
-            "Containerização com Docker e orquestração com Kubernetes",
-            "Integração com serviços AWS",
-            "Interação com bases de dados PostgreSQL e SQL",
-            "Monitorização e CI/CD com Grafana e Jenkins",
-          ],
+export const experienceData: ExperienceItem[] = [
+  {
+    company: "Openvia Mobility",
+    companyUrl: "https://openvia.io",
+    role: { en: "Software Developer", pt: "Programador de Software" },
+    period: { en: "2022 – Present", pt: "2022 – Presente" },
+    points: {
+      en: [
+        "Backend development using .NET and C# in microservices architecture",
+        "Design and implementation of RESTful APIs",
+        "Containerization with Docker and orchestration with Kubernetes",
+        "Integration with AWS services",
+        "PostgreSQL and SQL database interaction",
+        "Monitoring and CI/CD using Grafana and Jenkins",
+      ],
+      pt: [
+        "Desenvolvimento backend com .NET e C# em arquitetura de microserviços",
+        "Design e implementação de APIs RESTful",
+        "Containerização com Docker e orquestração com Kubernetes",
+        "Integração com serviços AWS",
+        "Interação com bases de dados PostgreSQL e SQL",
+        "Monitorização e CI/CD com Grafana e Jenkins",
+      ],
     },
-    {
-      company: "Critical Software",
-      role: language === 'en' ? "Software Engineer" : "Engenheiro de Software",
-      period: "2021 – 2022",
-      points: language === 'en'
-        ? [
-            "Development of safety-critical software for railway, aerospace and maritime systems",
-            "Work under DO-178C and DO-330 standards",
-            "Requirements definition, plans, test cases and test procedures",
-            "Software integration and continuous improvement",
-            "Participation in international and confidential projects",
-          ]
-        : [
-            "Desenvolvimento de software safety-critical para sistemas ferroviários, aeroespaciais e marítimos",
-            "Trabalho sob normas DO-178C e DO-330",
-            "Definição de requisitos, planos, casos de teste e procedimentos de teste",
-            "Integração de software e melhoria contínua",
-            "Participação em projetos internacionais e confidenciais",
-          ],
+  },
+  {
+    company: "Critical Software",
+    companyUrl: "https://criticalsoftware.com",
+    role: { en: "Software Engineer", pt: "Engenheiro de Software" },
+    period: { en: "2021 – 2022", pt: "2021 – 2022" },
+    points: {
+      en: [
+        "Development of safety-critical software for railway, aerospace and maritime systems",
+        "Work under DO-178C and DO-330 standards",
+        "Requirements definition, plans, test cases and test procedures",
+        "Software integration and continuous improvement",
+        "Participation in international and confidential projects",
+      ],
+      pt: [
+        "Desenvolvimento de software safety-critical para sistemas ferroviários, aeroespaciais e marítimos",
+        "Trabalho sob normas DO-178C e DO-330",
+        "Definição de requisitos, planos, casos de teste e procedimentos de teste",
+        "Integração de software e melhoria contínua",
+        "Participação em projetos internacionais e confidenciais",
+      ],
     },
-  ];
+  },
+];
+
+interface ExperienceProps {
+  showAll?: boolean;
+}
+
+const Experience = ({ showAll = false }: ExperienceProps) => {
+  const { language, t } = useLanguage();
+  const displayData = showAll ? experienceData : experienceData.slice(0, 2);
 
   return (
-    <section id="experience" className="py-24 px-6">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-sm font-mono text-primary uppercase tracking-wider mb-8">
-          {language === 'en' ? "Experience" : "Experiência"}
-        </h2>
+    <section id="experience" className="py-6 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="section-header">
+          <h2 className="section-title">
+            {t("Experience", "Experiência")}
+          </h2>
+          {!showAll && (
+            <Link to="/experience" className="view-all-link">
+              {t("view all", "ver tudo")}
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          )}
+        </div>
 
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-6 border-l border-border">
-              <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-primary" />
-
-              <div className="mb-2">
-                <h3 className="text-lg font-medium text-foreground">
-                  {exp.company}
-                </h3>
-                <p className="text-muted-foreground">{exp.role}</p>
-                <p className="text-sm text-muted-foreground/70">{exp.period}</p>
+        <div className="grid gap-4">
+          {displayData.map((exp, index) => (
+            <div key={index} className="card-dashboard">
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <a
+                    href={exp.companyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-foreground font-medium hover:text-primary transition-colors"
+                  >
+                    {exp.company}
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <p className="text-sm text-muted-foreground">
+                    {exp.role[language]}
+                  </p>
+                </div>
+                <span className="text-xs text-muted-foreground font-mono">
+                  {exp.period[language]}
+                </span>
               </div>
 
-              <ul className="space-y-2 mt-4">
-                {exp.points.map((point, i) => (
+              <ul className="space-y-1.5">
+                {exp.points[language].slice(0, showAll ? undefined : 3).map((point, i) => (
                   <li
                     key={i}
-                    className="text-secondary-foreground/80 text-sm pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-muted-foreground"
+                    className="text-secondary-foreground text-sm pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-muted-foreground"
                   >
                     {point}
                   </li>

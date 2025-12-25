@@ -1,13 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
-import Certificates from "@/components/Certificates";
-import Education from "@/components/Education";
-import Contact from "@/components/Contact";
+import EducationCertificates from "@/components/EducationCertificates";
+import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -56,14 +53,11 @@ const Index = () => {
       </Helmet>
 
       <main className="min-h-screen bg-background">
-        <Navigation />
         <Hero />
-        <About />
         <TechStack />
         <Experience />
-        <Certificates />
-        <Education />
-        <Contact />
+        <EducationCertificates />
+        <Projects />
         <Footer />
       </main>
     </>
