@@ -19,8 +19,8 @@ const Hero = () => {
         <div className="card-dashboard">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             {/* Profile Picture */}
-            <Avatar className="w-20 h-20 border-2 border-border bg-secondary flex-shrink-0">
-              <AvatarImage src="/icons/icon-256.png" alt="Diogo Vieira" />
+            <Avatar className="w-40 h-40 border-2 border-border bg-secondary flex-shrink-0">
+              <AvatarImage src="/profile.jpg" alt="Diogo Vieira" />
               <AvatarFallback className="text-muted-foreground text-xl font-medium">DV</AvatarFallback>
             </Avatar>
 
