@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
 import EducationCertificates from "@/components/EducationCertificates";
 import Footer from "@/components/Footer";
 
@@ -55,6 +56,7 @@ const Index = () => {
         <Hero />
         <TechStack />
         <Experience />
+        <Projects />
         <EducationCertificates />
         <Footer />
       </main>

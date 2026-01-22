@@ -11,40 +11,23 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Cloud API Gateway",
+    name: "Telegram Finance Tracker Bot",
     description: {
-      en: "Microservices API gateway with rate limiting and authentication",
-      pt: "Gateway de API para microserviços com rate limiting e autenticação",
+      en: "A Telegram bot for personal finance tracking with multi-user support, smart categorization, and monthly analytics",
+      pt: "Bot de Telegram para gestão de finanças pessoais com suporte multi-utilizador, categorização inteligente e análises mensais",
     },
-    tech: [".NET", "Docker", "AWS"],
-    githubUrl: "https://github.com/diogovieira/api-gateway",
+    tech: ["Python", "SQLite", "Docker", "Telegram API"],
+    githubUrl: "https://github.com/diogoviieira/register-track-bot",
   },
   {
-    name: "DevOps Pipeline",
+    name: "Personal Portfolio Website",
     description: {
-      en: "CI/CD pipeline automation for containerized applications",
-      pt: "Automação de pipeline CI/CD para aplicações containerizadas",
+      en: "Modern portfolio website built with React, TypeScript, and shadcn/ui, featuring multilingual support and dark mode",
+      pt: "Website de portfolio moderno construído com React, TypeScript e shadcn/ui, com suporte multilíngue e modo escuro",
     },
-    tech: ["Jenkins", "Kubernetes", "Terraform"],
-    githubUrl: "https://github.com/diogovieira/devops-pipeline",
-  },
-  {
-    name: "Real-time Monitor",
-    description: {
-      en: "System monitoring dashboard with real-time metrics",
-      pt: "Dashboard de monitorização de sistemas com métricas em tempo real",
-    },
-    tech: ["Grafana", "PostgreSQL", "Python"],
-    githubUrl: "https://github.com/diogovieira/system-monitor",
-  },
-  {
-    name: "Data Migration Tool",
-    description: {
-      en: "Automated database migration and synchronization tool",
-      pt: "Ferramenta de migração e sincronização de bases de dados",
-    },
-    tech: ["C#", "PostgreSQL", "MySQL"],
-    githubUrl: "https://github.com/diogovieira/data-migration",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    githubUrl: "https://github.com/diogoviieira/diogovieira.dev",
+    liveUrl: "https://diogovieira.dev",
   },
 ];
 
