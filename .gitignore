@@ -10,15 +10,36 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+build
 *.local
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor specific files
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+*.swp
+*.swo
+*~
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS specific files
+Thumbs.db
+
+# Build artifacts
+*.tsbuildinfo
+
+# Lock files (choose one based on your package manager)
+package-lock.json
+yarn.lock
+bun.lockb
