@@ -16,7 +16,7 @@ export const experienceData: ExperienceItem[] = [
     company: "Openvia Mobility",
     companyUrl: "https://openvia.io",
     role: { en: "Software Developer", pt: "Programador de Software" },
-    period: { en: "2025 – Present", pt: "2025 – Presente" },
+    period: { en: "2025 – 2025", pt: "2025 – 2025" },
     points: {
       en: [
         "Design and develop backend services using .NET/C# in distributed microservices architecture",
